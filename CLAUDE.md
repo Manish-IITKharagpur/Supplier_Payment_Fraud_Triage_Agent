@@ -38,6 +38,8 @@ I am a beginner learning this material. Follow the course coach
 - **Notion is the source of truth for progress:** page "Week 1 Deliverable — Supplier Payment
   Fraud Triage Agent" plus "Session Log" under "AI Native Engineering Sprint Hub". Read both at the
   start of a session; add a Session Log entry (covered / stopped at / next) at the end.
+- Visibility work (LinkedIn/X/Reddit posts, profile, post ideas queue) is tracked on the Notion
+  page "Public Presence" in the same hub.
 
 ## Git
 - Repo root is this folder: `https://github.com/Manish-IITKharagpur/Supplier_Payment_Fraud_Triage_Agent`
