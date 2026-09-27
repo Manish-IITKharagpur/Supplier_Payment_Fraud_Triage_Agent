@@ -208,8 +208,14 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
 - ✅ **Policy sketch (2026-09-27): reject only when confident it is fraud; hold when unsure.**
   This gives three zones: approve below p₁ · hold-and-verify between p₁ and p₂ · reject above p₂.
   p₁ = verification cost ÷ fraud loss (derived). ❓ p₂ still to derive from costs: where do hold
-  and reject have equal expected cost? First decide what reject gains over hold when the email is
-  fraud.
+  and reject have equal expected cost?
+  - ✅ **What reject gains over hold (2026-09-27): reject alerts security, so a hacked mailbox gets
+    found.** That gain exists only in the *compromised* state; for *spoofed*, hold and reject both
+    keep the money safe. So p₂ should depend mainly on **P(compromised)**, not on P(fraud) as a
+    whole. **This is why spoofed and compromised must stay separate hidden states: they lead to
+    different best actions.**
+  - ❓ For Step 3: should a hold whose callback reveals fraud also alert security? If so, reject
+    loses its advantage.
 - Is the decision per request or per payment? A request could be approved while the payment is held.
 - What happens *after* the action (feedback): does the agent ever learn the true state?
 
