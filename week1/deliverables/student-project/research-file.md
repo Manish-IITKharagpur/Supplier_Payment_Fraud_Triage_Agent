@@ -201,8 +201,10 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
   inbox.** So the agent works as an email gateway in front of the AP inbox.
   - Cost of a wrong reject: a legitimate bank change is lost *silently*, and the supplier is paid
     to the old account or the payment fails.
-  - ❓ Still open: when an email is rejected, is anyone told (sender, AP team, security), or does
-    it vanish? This decides whether a wrong reject is silent or recoverable.
+  - ✅ **Decided (2026-09-27): the email is blocked and a security alert is logged.** A wrong
+    reject is therefore *recoverable*: security can review the alert and release the email. The
+    cost of a wrong reject depends on how quickly security reviews alerts (and alert fatigue
+    applies to the security queue too).
 - Is the decision per request or per payment? A request could be approved while the payment is held.
 - What happens *after* the action (feedback): does the agent ever learn the true state?
 
