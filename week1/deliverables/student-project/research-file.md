@@ -197,7 +197,12 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
 ## 11. Parts of my problem that are not clear yet
 
 - Is the input only the email, or also vendor history (past changes, payment amounts)?
-- Does "reject" mean refuse the change permanently, or reject this email and wait for a proper request?
+- ✅ **Decided (2026-09-27): "reject" means the email is blocked and never reaches the receiver's
+  inbox.** So the agent works as an email gateway in front of the AP inbox.
+  - Cost of a wrong reject: a legitimate bank change is lost *silently*, and the supplier is paid
+    to the old account or the payment fails.
+  - ❓ Still open: when an email is rejected, is anyone told (sender, AP team, security), or does
+    it vanish? This decides whether a wrong reject is silent or recoverable.
 - Is the decision per request or per payment? A request could be approved while the payment is held.
 - What happens *after* the action (feedback): does the agent ever learn the true state?
 
