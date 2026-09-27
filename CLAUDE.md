@@ -35,9 +35,15 @@ I am a beginner learning this material. Follow the course coach
 | `Deliverable_1_examples/` | A classmate's finished project (Example_1 = Example_2, identical). Reference only, never copy |
 
 ## Progress tracking
-- **Notion is the source of truth for progress:** page "Week 1 Deliverable — Supplier Payment
-  Fraud Triage Agent" plus "Session Log" under "AI Native Engineering Sprint Hub". Read both at the
-  start of a session; add a Session Log entry (covered / stopped at / next) at the end.
+- **Notion is the source of truth for progress.** Everything lives under one page,
+  **"AI Native Engineering Sprint Hub"**. Its sub-pages: "Week 1 Deliverable — Supplier Payment
+  Fraud Triage Agent", "Public Presence", "Session Log", and later Week N pages.
+- **Start of session:** read the hub's *Current focus*, then the Week page and Session Log.
+- **End of session (every time):** (1) tick items on the Week page, (2) add a Session Log entry
+  (covered / stopped at / next), (3) rewrite the hub's *Current focus* (now / next / waiting on
+  me), (4) commit and push.
+- The hub's "Deliverables" page is **outdated and contains wrong information. Ignore it** and never
+  use it as a source.
 - Visibility work (LinkedIn/X/Reddit posts, profile, post ideas queue) is tracked on the Notion
   page "Public Presence" in the same hub.
 
