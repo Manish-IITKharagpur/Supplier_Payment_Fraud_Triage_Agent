@@ -31,6 +31,7 @@ I am a beginner learning this material. Follow the course coach
 | `week1/deliverables/student-project/` | **My work**, in the course's required structure |
 | `Week_1&2_Deliverable_Instructions/` | Course brief (Week 1 md, Week 2 PDF, coach and readiness skills) |
 | `Week_1&2_Resources/` | Class recordings, transcripts, dry-run chapters (HTML) |
+| `../Visibility/` | LinkedIn/X class material (`session-NN/`) and my post drafts (`my-posts/`). Shared across weeks, outside this repo |
 | `Deliverable_1_examples/` | A classmate's finished project (Example_1 = Example_2, identical). Reference only, never copy |
 
 ## Progress tracking
