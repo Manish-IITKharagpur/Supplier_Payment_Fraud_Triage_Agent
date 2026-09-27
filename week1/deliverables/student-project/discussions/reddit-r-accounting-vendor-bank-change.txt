@@ -1,0 +1,41 @@
+r/Accounting
+•
+
+How do you actually decide on a vendor bank-change request?
+When a vendor emails asking to change their bank details, how do you decide whether to just process it or stop and verify first? What's the one thing that makes you pick up the phone and call them on a number you already have? And has one ever looked totally legit but turned out to be fraud?
+
+Replies
+Funny-Lavishness-413
+•
+1mo ago
+Usually if the email address is one letter off or the tone is more urgent than normal I stop and call the number from our system, not the one in the email. One request looked completely normal, exact logo and signature, but the routing number was for a different region so I called and the vendor never sent it. That was enough for me
+Protein_Intake
+OP
+•
+1mo ago
+the logo and signature both checked out and it still wasn't real. Do you verify the routing region on every bank-change request now, or only when something else already feels off? Trying to understand whether that's a routine check or a "trust your gut first" thing.
+
+TheElRojo
+•
+1mo ago
+CPA (US)
+Always verify.
+
+We had a man the middle, where one of our vendors IT was compromised; email came from their account, but sent a malicious link. Had they instead asked to change ACH routing, there would’ve been no clue.
+
+Protein_Intake
+OP
+•
+1mo ago
+That account-compromise case is the one that worries me most. If it comes from their real account and just asks for an ACH change, nothing in the email is wrong. Is the callback to a known number the only thing that saves you there, or is there anything else that ever tips you off?
+alphabet_sam
+•
+1mo ago
+CPA (US)
+I would always call. It shouldn’t be so frequent that you are speed dialing vendors all day, and losing thousands to fraud sucks ass
+
+Protein_Intake
+OP
+•
+1mo ago
+that base-rate point is the part I was missing, thanks

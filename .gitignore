@@ -1,0 +1,7 @@
+# Only my own deliverables are tracked.
+# Course materials, class recordings and other students' examples stay local.
+/*
+!/.gitignore
+!/README.md
+!/week1/
+!/week2/
