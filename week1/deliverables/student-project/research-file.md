@@ -197,6 +197,11 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
 ## 11. Parts of my problem that are not clear yet
 
 - Is the input only the email, or also vendor history (past changes, payment amounts)?
+- ✅ **Decided (2026-09-29): the setting is India.** Payments go by NEFT/RTGS/IMPS; bank accounts are
+  identified by IFSC code, so a bank-location check compares the IFSC branch with the supplier's
+  known location, and a penny-drop name check is available.
+  - Accepted from r/Accounting: bank-location mismatch as evidence · logo/signature near-uninformative ·
+    always-hold-and-verify baseline.
 - ✅ **Decided (2026-09-27): "reject" means the email is blocked and never reaches the receiver's
   inbox.** So the agent works as an email gateway in front of the AP inbox.
   - Cost of a wrong reject: a legitimate bank change is lost *silently*, and the supplier is paid

@@ -11,6 +11,9 @@ Decisions already made (details in `research-file.md` sections 11 and 11a):
   p₁ = verification cost ÷ fraud loss (falls as the amount rises). p₂ depends mainly on
   P(compromised), because reject's extra value is getting the hacked mailbox found.
 - Spoofed and compromised stay **separate states** because they lead to different best actions.
+- **Setting: India** (IFSC codes, NEFT/RTGS/IMPS, penny-drop checks, amounts in ₹).
+- Accepted from r/Accounting: bank-location (IFSC branch) mismatch as evidence; logo and signature
+  are near-uninformative; an **always hold-and-verify** baseline in the experiment.
 
 ## How to work with me: learning first
 I am a beginner learning this material. Follow the course coach
