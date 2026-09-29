@@ -8,15 +8,20 @@
 
 ---
 
-## A. You are here *(updated 2026-09-29)*
+## A. You are here *(updated 2026-09-30)*
 
 - **Stage:** Week 1, **Step 3 (agent design on paper)**. The **policy** layer (L4) is being derived.
-- **Last session:** accepted 3 design changes from r/Accounting; set the setting to **India**.
-- **Right now:** deriving **p₂**, the threshold between *hold* and *reject*.
-- **Next:** finish p₂ → evidence list + likelihood tables (L1/L3) → 2 more Reddit posts → X list →
-  read Ho 2019 + Elkan 2001.
+- **Last session (2026-09-30):** re-grounded p₁/p₂ and the L0–L4 layers; decided a **failed
+  callback also raises a security alert** (option B); found reject's only remaining advantage is
+  **timing** (alerts immediately vs after the call fails).
+- **Right now:** p₂ waits on one real number: **how long a callback takes** in practice (L0).
+- **Next:** verify r/CAIndia (active, rules) → post the callback-timing question in my own words
+  (+ follow-up in the r/Accounting thread) → research verification guidance meanwhile → plan a
+  **sensitivity check** on the delay (assumed short/medium/long) → evidence list + likelihood tables
+  (L1/L3) → X list → read Ho 2019 + Elkan 2001.
 - **Waiting on me:** one line "reason for accepting" in `discussion-record.md` · Gaussian
-  teach-back · confirm the 🔲 entries in section B.
+  teach-back · confirm the 🔲 entries in section B · re-read r/Accounting thread and tick the
+  summary check · rewrite the 🔲 Reddit drafts (in this session's chat) in my own words.
 
 ---
 
@@ -105,6 +110,21 @@ they match how I remember them.*
   hold on compromised → money safe, but *"I don't know"* what else; reject on legit → costly;
   reject on compromised → money safe.
 
+**10. What happens after a failed callback (2026-09-30)** ✅
+- **Re-grounded:** Reddit feeds specific layers (L1 compromised state, L3 IFSC + uninformative
+  logo, experiment baseline, p₁ sanity check). Thresholds are *calculated* from costs, not picked.
+  L0–L4 = the steps from "what could be true" to "what do I do".
+- **Noticed:** I challenged Claude: a hold-and-verify call also reveals the fraud. But a call shows
+  *fraud*, not *which kind*; the supplier may never check their own mailbox.
+- **Decision:** a **failed callback also raises a security alert** (option B). So reject's only
+  remaining advantage is **timing**: it alerts immediately; hold alerts after the call fails.
+- **Cost filled (L0):** holding on a compromised mailbox without an alert lets the attacker keep
+  access and attack again (or adapt after watching our reaction).
+- **Design change:** p₂ now hinges on the **callback delay** (main factor; a small factor in p₁
+  too). No number yet: ask practitioners (r/CAIndia candidate, r/Accounting follow-up) and treat the
+  delay as a **sensitivity check** in the experiment meanwhile.
+- **Evidence:** `research-file.md` §11 and §13 (two AI overstatements logged).
+
 ---
 
 ## C. Concept → agent map
@@ -130,7 +150,8 @@ they match how I remember them.*
 | Derived threshold p₁ | Verification cost ÷ fraud loss | **L4** approve/hold line | Session 7 | ✅ |
 | Calibration vs discrimination | "70% means 70%" and "different cases get different numbers" | Evaluation (Step 6, Week 2) | Session 7 | ✅ |
 | Escalation | Send to a human for high stakes or split beliefs | **L4** policy | Session 7 | ✅ |
-| Threshold p₂ | Where hold and reject cost the same | **L4** hold/reject line | Session 9 | 🟡 |
+| Threshold p₂ | Where hold and reject cost the same; now hinges on the callback delay | **L4** hold/reject line | Sessions 9–10 | 🟡 |
+| Sensitivity check | Vary an uncertain number and see if the decision changes | Experiment (Step 6) | Session 10 | 🟡 |
 | Entropy | How spread out (uncertain) the belief is, in bits | L1–L3 diagnostics | Week 2 | ⬜ |
 | Information gain (expected) | How much a check is *expected* to reduce uncertainty | Choosing which check to run | Week 2 | ⬜ |
 | Value of information · stop rule | A check is worth it only if some result would change the action | **L4** information selection | Week 2 | ⬜ |
@@ -150,8 +171,8 @@ they match how I remember them.*
 | **Belief** | L2 | ⬜ | prior over 3 states. Where do the numbers come from? (not yet) | — | Probability model |
 | **Evidence** | L3 | 🟡 | candidates: lookalike domain, SPF/DKIM/DMARC, reply-to, urgency, **IFSC mismatch** (accepted), logo/signature (≈ uninformative), callback, penny-drop | discussion-record, §4 | Probability model |
 | **Actions** | L4 | ✅ | approve · hold-and-verify (callback) · reject (block + security alert) | research-file §11 | Agent design |
-| **Cost** | L0 | 🟡 | wrong approve = payment lost; wrong hold = delay + relationship; wrong reject = recoverable delay; hold on compromised = ? (being worked out) | §11, session 9 | Decision rule |
-| **Policy** | L4 | 🟡 | three zones; **p₁ derived**; p₂ in progress; escalation: stakes + uncertainty | §11a | Decision rule |
-| **Feedback** | — | ⬜ | what the agent learns after acting (callback result, security finding) | — | Agent design |
+| **Cost** | L0 | 🟡 | wrong approve = payment lost; wrong hold = delay + relationship; wrong reject = recoverable delay; hold on compromised = attacker keeps access during the callback delay (length unknown, asking practitioners) | §11, sessions 9–10 | Decision rule |
+| **Policy** | L4 | 🟡 | three zones; **p₁ derived**; p₂ hinges on the timing gap (reject alerts now, hold after a failed call); escalation: stakes + uncertainty | §11, §11a | Decision rule |
+| **Feedback** | — | 🟡 | **a failed callback raises a security alert** (decided 2026-09-30); what else the agent learns is open | §11 | Agent design |
 | **Human reasoning function** | — | ⬜ | candidate: change belief after new evidence (callback) | — | Agent design |
 | **Experiment** | — | ⬜ | policies + baselines incl. **always hold-and-verify**; India setting; simulated cases | — | Test method / Results |

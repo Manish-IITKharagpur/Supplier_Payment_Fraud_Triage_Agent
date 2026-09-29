@@ -219,8 +219,14 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
     keep the money safe. So p₂ should depend mainly on **P(compromised)**, not on P(fraud) as a
     whole. **This is why spoofed and compromised must stay separate hidden states: they lead to
     different best actions.**
-  - ❓ For Step 3: should a hold whose callback reveals fraud also alert security? If so, reject
-    loses its advantage.
+  - ✅ **Decided (2026-09-30): a failed callback also raises a security alert** (option B). A call
+    alone shows *fraud*, not *which kind*: the supplier may assume spoofing and never check their
+    own mailbox, so the alert is what gets a compromised mailbox found. Consequence: reject's
+    advantage over hold shrinks. What is left (my answer, 2026-09-30): **timing**. Reject alerts
+    immediately; hold alerts only after the callback fails. ❓ How long is that gap in practice,
+    and what can the attacker do during it? ❓ Reliability: if the call is fooled, hold never alerts.
+  - Cost of holding on a compromised mailbox with no alert (my answer, 2026-09-30): the attacker
+    keeps access and can attack again.
 - Is the decision per request or per payment? A request could be approved while the payment is held.
 - What happens *after* the action (feedback): does the agent ever learn the true state?
 
@@ -278,4 +284,6 @@ Do not present uncertain information as fact.
 | 2026-09-25 | Claude | Could not verify Reddit communities (Reddit blocked automated access), so the list is unverified | Left as 🔲; I will verify by hand |
 | 2026-09-25 | Claude | Could not confirm specific X handles, so it gave search methods, not a list of accounts | Will build the list myself |
 | 2026-09-25 | Claude | Suggested r/AccountsPayable as "the most direct audience"; it does not exist or is not accessible | Activity check with reddit-mcp-buddy returned "not found"; removed |
+| 2026-09-30 | Claude | Overstated that after a hold-and-verify call "the hacked mailbox is still hacked" and nobody knows. That ignored what the company does after a failed callback, a design choice that had not been made yet | I challenged it ("doesn't the phone call also make everyone aware?"). This led to deciding that a failed callback also raises a security alert (§11) |
+| 2026-09-30 | Claude | Asked a check question implying the callback delay affects p₂ "but not p₁". Too strong: a longer callback also raises the cost of holding a legitimate supplier, which is part of p₁ (a small effect) | Claude corrected itself when reviewing my answer; logged |
 | — | — | *(Add more here: invented citations, wrong numbers, overconfident claims)* | |
