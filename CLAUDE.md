@@ -32,6 +32,7 @@ I am a beginner learning this material. Follow the course coach
 | Path | What |
 |---|---|
 | `week1/deliverables/student-project/` | **My work**, in the course's required structure |
+| `week1/deliverables/student-project/PROJECT-MAP.md` | **Where I am, how I got here, concept → agent map.** Read first every session |
 | `Week_1&2_Deliverable_Instructions/` | Course brief (Week 1 md, Week 2 PDF, coach and readiness skills) |
 | `Week_1&2_Resources/` | Class recordings, transcripts, dry-run chapters (HTML) |
 | `../Visibility/` | LinkedIn/X class material (`session-NN/`) and my post drafts (`my-posts/`). Shared across weeks, outside this repo |
@@ -41,10 +42,19 @@ I am a beginner learning this material. Follow the course coach
 - **Notion is the source of truth for progress.** Everything lives under one page,
   **"AI Native Engineering Sprint Hub"**. Its sub-pages: "Week 1 Deliverable — Supplier Payment
   Fraud Triage Agent", "Public Presence", "Session Log", and later Week N pages.
-- **Start of session:** read the hub's *Current focus*, then the Week page and Session Log.
-- **End of session (every time):** (1) tick items on the Week page, (2) add a Session Log entry
-  (covered / stopped at / next), (3) rewrite the hub's *Current focus* (now / next / waiting on
-  me), (4) commit and push.
+- **Start of session:** read `week1/deliverables/student-project/PROJECT-MAP.md`, then the hub's
+  *Current focus* and the latest Session Log entry. **Before any new work, open with a briefing**
+  in this format (short, in plain words):
+  1. **Where we are:** stage and step, plus the last session in one line
+  2. **The journey so far:** the story in 4–6 lines (what the agent could do → what we learned →
+     what changed), not a list of files
+  3. **Concepts in play today:** which ones, and which agent layer (L0–L4) each belongs to
+  4. **Today's goal** and anything waiting on me
+- **End of session (every time):** (0) update `PROJECT-MAP.md`: rewrite section A, add a section B
+  entry for the session, and update C/D if a concept or agent part changed; (1) tick items on the
+  Week page; (2) add a Session Log entry (covered / stopped at / next); (3) rewrite the hub's
+  *Current focus* (now / next / waiting on me); (4) commit and push.
+- `/where-am-i` gives the same briefing at any point mid-session.
 - The hub's "Deliverables" page is **outdated and contains wrong information. Ignore it** and never
   use it as a source.
 - Visibility work (LinkedIn/X/Reddit posts, profile, post ideas queue) is tracked on the Notion
