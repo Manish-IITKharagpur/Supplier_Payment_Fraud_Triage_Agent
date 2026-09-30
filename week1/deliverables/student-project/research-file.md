@@ -253,6 +253,48 @@ The Enron email corpus is real email but has no fraud labels for this task. Curr
 - **Two escalation rules:** (1) a stakes rule: above an amount cap, always go to a human;
   (2) an uncertainty rule: if beliefs are split across states, escalate.
 
+## 11b. Draft evidence table, L3 (directions only, 2026-09-30)
+
+For each clue, the forward question: *if the world were X, how often would I see this?* Directions
+are my own judgments, worked out with Claude's questions. **No numbers yet, and no source yet** 🔲.
+
+| Clue | Kind | Legit | Spoofed | Compromised | Separates | Strength |
+|---|---|---|---|---|---|---|
+| Logo/signature perfect | email, free | high | high | high | nothing | useless |
+| Lookalike domain | email, free | low | high* | low | spoofed vs rest | medium |
+| SPF/DKIM pass | email, free | high | low* | high | spoofed vs rest | medium |
+| Urgency | email, free | sometimes | high | low–sometimes | mostly spoofed | weak |
+| Reply-to differs from sender | email, free | low | high* | sometimes 🔲 | mostly spoofed | medium |
+| IFSC mismatch | money, free | low | high | high | legit vs fraud | strong |
+| Penny-drop name mismatch | money, costly | low | high | high | legit vs fraud | strong |
+| Callback says "not us" | phone, costly | very low | very high | very high | legit vs fraud | strongest |
+
+\* Depends on the spoofing trick. An **exact-address forgery** has no lookalike and fails SPF/DKIM; a
+**lookalike domain** the attacker owns passes SPF/DKIM. So the two clues work as a team.
+
+**Key findings**
+- **No single clue separates all three worlds, but email clues + money clues together do:**
+  email clean + money clean → legitimate · email suspicious + money wrong → spoofed ·
+  **email clean + money wrong → compromised.** This pattern raises P(compromised), which is what
+  drives p₂.
+- **Judge the destination, not just the messenger.** Money clues (IFSC, penny-drop) work in the
+  compromised world because the attacker needs the payment to reach *their* account.
+- **Free vs costly clues.** Callback and penny-drop cost time. The callback *is* the hold action,
+  so free clues decide whether to pay for costly ones (links to value of information, Week 2).
+- **Attacker-controlled clues fade** (urgency, lookalike domain): adversarial adaptation. Prefer
+  clues the attacker cannot control (callback to a number on file, penny-drop).
+
+**Caveats to test or source**
+- Penny-drop, legit ≠ zero: sole proprietorships often bank in the owner's personal name, not the
+  trade name → false alarms.
+- IFSC mismatch, legit ≠ zero: real suppliers sometimes bank in another city; fraud "high" can
+  fade if attackers open mule accounts in the supplier's city.
+- Callback fails if the clerk is rushed (alert fatigue) or the number comes from the email.
+- Reply-to: a lookalike-domain spoofer receives replies directly and needs no reply-to trick (the *
+  caveat). Compromised = "sometimes" assumes attackers may redirect replies so the real owner does
+  not notice; plausible, not sourced 🔲 (ask r/sysadmin or r/msp).
+- Not yet tried: reply inside an existing thread · supplier's change history (which layer?).
+
 ## 12. AI prompts used
 
 **Research prompt (from the course brief), run with Claude, 2026-09-25:**
