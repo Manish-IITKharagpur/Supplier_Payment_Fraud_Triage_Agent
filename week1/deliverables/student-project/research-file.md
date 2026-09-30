@@ -265,6 +265,7 @@ are my own judgments, worked out with Claude's questions. **No numbers yet, and 
 | SPF/DKIM pass | email, free | high | low* | high | spoofed vs rest | medium |
 | Urgency | email, free | sometimes | high | low–sometimes | mostly spoofed | weak |
 | Reply-to differs from sender | email, free | low | high* | sometimes 🔲 | mostly spoofed | medium |
+| Reply inside a real existing thread | email, free | often | low | sometimes | spoofed vs rest | medium |
 | IFSC mismatch | money, free | low | high | high | legit vs fraud | strong |
 | Penny-drop name mismatch | money, costly | low | high | high | legit vs fraud | strong |
 | Callback says "not us" | phone, costly | very low | very high | very high | legit vs fraud | strongest |
@@ -293,7 +294,11 @@ are my own judgments, worked out with Claude's questions. **No numbers yet, and 
 - Reply-to: a lookalike-domain spoofer receives replies directly and needs no reply-to trick (the *
   caveat). Compromised = "sometimes" assumes attackers may redirect replies so the real owner does
   not notice; plausible, not sourced 🔲 (ask r/sysadmin or r/msp).
-- Not yet tried: reply inside an existing thread · supplier's change history (which layer?).
+- Thread reply: a spoofer cannot see past emails; a compromised attacker can reply inside a real
+  thread. It *reassures* the clerk, so it makes a compromised email look **more** legitimate.
+- **Supplier change history is not L3 evidence; it belongs in L2 (prior)**, because it is known
+  before the email arrives. It makes the prior supplier-specific (reference class: requests from
+  suppliers who rarely change banks). Data source: the company's own vendor-change records.
 
 ## 12. AI prompts used
 

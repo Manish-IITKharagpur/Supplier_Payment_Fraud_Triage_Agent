@@ -168,8 +168,8 @@ they match how I remember them.*
 |---|---|---|---|---|---|
 | **Input** | — | 🟡 | A supplier bank-change email (+ vendor history? open) | research-file §11 | Agent design |
 | **Hidden states** | L1 | 🟡 | legitimate / spoofed / compromised. Open: a "something else" state (the course had *spam*) | CLAUDE.md, §1 | Probability model |
-| **Belief** | L2 | ⬜ | prior over 3 states. Where do the numbers come from? (not yet) | — | Probability model |
-| **Evidence** | L3 | 🟡 | **draft direction table (8 clues)**: email clues separate spoofed; money clues (IFSC, penny-drop) + callback separate legit vs fraud; email clean + money wrong → compromised. Not yet: thread, supplier history; numbers | §11b | Probability model |
+| **Belief** | L2 | ⬜ | prior over 3 states, made **supplier-specific by change history** (decided 2026-09-30). Where do the numbers come from? (not yet) | §11b | Probability model |
+| **Evidence** | L3 | 🟡 | **draft direction table (9 clues)**: email clues separate spoofed; money clues (IFSC, penny-drop) + callback separate legit vs fraud; email clean + money wrong → compromised. Supplier history moved to L2. Not yet: numbers | §11b | Probability model |
 | **Actions** | L4 | ✅ | approve · hold-and-verify (callback) · reject (block + security alert) | research-file §11 | Agent design |
 | **Cost** | L0 | 🟡 | wrong approve = payment lost; wrong hold = delay + relationship; wrong reject = recoverable delay; hold on compromised = attacker keeps access during the callback delay (length unknown, asking practitioners) | §11, sessions 9–10 | Decision rule |
 | **Policy** | L4 | 🟡 | three zones; **p₁ derived**; p₂ hinges on the timing gap (reject alerts now, hold after a failed call); escalation: stakes + uncertainty | §11, §11a | Decision rule |
