@@ -300,6 +300,30 @@ are my own judgments, worked out with Claude's questions. **No numbers yet, and 
   before the email arrives. It makes the prior supplier-specific (reference class: requests from
   suppliers who rarely change banks). Data source: the company's own vendor-change records.
 
+## 11c. Prior sources, L2 (2026-10-01)
+
+The prior answers: *before reading this email, out of comparable bank-change requests, what share
+comes from each world?* Split into two questions, then adjusted per supplier by change history (§11b).
+
+**Q1. How much fraud?** Needs a top (fraud cases) **and** a bottom (all bank-change requests).
+Most reports give only the top: the base-rate trap.
+
+| Source | Top | Bottom | Catch |
+|---|---|---|---|
+| Company's own records | yes | yes | I have none (limitation); uncaught fraud is missing, so the top is undercounted |
+| Industry surveys (e.g. AFP 2025) | yes | wrong one? | often "% of organisations with an attempt", not per request. Check when I read it 🔲 |
+| FBI IC3 | yes | no | reported cases only, US, counted by losses |
+| Practitioners (Reddit) | rough | rough | few people, dramatic stories over-represented, mostly US |
+
+**Q2. Which kind (spoofed vs compromised)?** Only people who investigate afterwards record how the
+attacker got in: incident-response/security reports, research papers (check whether Cidon 2019 and
+Ho 2019 report impersonation vs account takeover 🔲, not yet read), practitioners in r/sysadmin and
+r/msp. **Catch:** investigators mostly see cases that caused harm; spoofed emails blocked by
+filters are never counted, so these sources may **over-count compromised**.
+
+**Plan:** no source gives a clean prior. Use the rough sources for a **range**, pick values inside
+it labelled **assumed**, and run a **sensitivity check** (same approach as the callback delay).
+
 ## 12. AI prompts used
 
 **Research prompt (from the course brief), run with Claude, 2026-09-25:**
