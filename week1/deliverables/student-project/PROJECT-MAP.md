@@ -8,20 +8,23 @@
 
 ---
 
-## A. You are here *(updated 2026-09-30)*
+## A. You are here *(updated 2026-10-06)*
 
-- **Stage:** Week 1, **Step 3 (agent design on paper)**. The **policy** layer (L4) is being derived.
-- **Last session (2026-09-30):** re-grounded p₁/p₂ and the L0–L4 layers; decided a **failed
-  callback also raises a security alert** (option B); found reject's only remaining advantage is
-  **timing** (alerts immediately vs after the call fails).
-- **Right now:** p₂ waits on one real number: **how long a callback takes** in practice (L0).
-- **Next:** verify r/CAIndia (active, rules) → post the callback-timing question in my own words
-  (+ follow-up in the r/Accounting thread) → research verification guidance meanwhile → plan a
-  **sensitivity check** on the delay (assumed short/medium/long) → evidence list + likelihood tables
-  (L1/L3) → X list → read Ho 2019 + Elkan 2001.
-- **Waiting on me:** one line "reason for accepting" in `discussion-record.md` · Gaussian
-  teach-back · confirm the 🔲 entries in section B · re-read r/Accounting thread and tick the
-  summary check · rewrite the 🔲 Reddit drafts (in this session's chat) in my own words.
+- **Stage:** Week 1, end of **Step 3**. `SPEC.md` is **approved** (Genesis, 2026-10-06); Genesis is
+  now in the **planning** phase. No code yet.
+- **Last sessions (30 Sep → 6 Oct):** built the **L3 evidence table** (9 clues, directions only);
+  mapped **prior sources** (L2); made a shareable progress page; set up **Genesis** and wrote +
+  approved `SPEC.md` (9 FR, 5 NFR, 8 AC).
+- **Right now:** before planning Step 5, pick **assumed number ranges** for the evidence table and
+  the prior (sources in research-file §11b, §11c).
+- **Next:** assumed ranges → Genesis planning (Step 5 tasks linked to FR/AC, each with a test) →
+  first Python code. In the background: verify r/CAIndia and post the callback-timing question;
+  r/sysadmin or r/msp question on spoofed vs compromised split; X list; read Ho 2019 + Elkan 2001
+  (+ Cidon 2019, AFP 2025 for the prior).
+- **Waiting on me:** check the 🔲 wording in `SPEC.md` · "reason for accepting" in
+  `discussion-record.md` · Gaussian teach-back · confirm 🔲 entries in section B · re-read the
+  r/Accounting thread and tick the summary check · rewrite the Reddit drafts in my own words ·
+  review the progress page before sharing it.
 
 ---
 
@@ -125,6 +128,22 @@ they match how I remember them.*
   delay as a **sensitivity check** in the experiment meanwhile.
 - **Evidence:** `research-file.md` §11 and §13 (two AI overstatements logged).
 
+
+**11. Evidence, prior sources, and the spec (2026-09-30 → 10-06)** ✅
+- **Evidence (L3):** for 9 clues, asked "how often would I see this in each world?" (directions
+  only). Email clues mostly catch **spoofed**; money clues (IFSC, penny-drop) and the callback
+  separate **legit vs fraud**. **Email clean + money wrong → compromised.** Principle: judge the
+  destination, not just the messenger. Free vs costly clues (the callback *is* the hold). Supplier
+  history moved to **L2** (known before the email arrives). Evidence: research-file §11b.
+- **Prior (L2):** split into "how much fraud" and "which kind". Most sources give only the fraud
+  count, not the total of requests (base-rate trap again); investigators may over-count
+  compromised. Plan: range → assumed values → sensitivity check. Evidence: §11c.
+- **Genesis + SPEC.md:** spec-first harness set up; decisions recorded in its ledger; I answered
+  each section and approved the spec. New choices: penny-drop runs inside hold; the agent explains
+  its decision; calibration is required; clues treated as independent (a limitation); beating
+  always-call is **reported, not required**; **circular testing** is the main risk.
+- **Also:** a shareable progress page (claude.ai artifact, private until I share it); learned what
+  a PR/branch is (not needed for a solo repo).
 ---
 
 ## C. Concept → agent map
@@ -152,6 +171,9 @@ they match how I remember them.*
 | Escalation | Send to a human for high stakes or split beliefs | **L4** policy | Session 7 | ✅ |
 | Threshold p₂ | Where hold and reject cost the same; now hinges on the callback delay | **L4** hold/reject line | Sessions 9–10 | 🟡 |
 | Sensitivity check | Vary an uncertain number and see if the decision changes | Experiment (Step 6) | Session 10 | 🟡 |
+| Free vs costly evidence | Some clues cost nothing, others (callback, penny-drop) cost time; free clues decide whether to pay | **L3/L4** (leads to value of information) | Session 11 | 🟡 |
+| Conditional independence (naive Bayes) | Treat clues as unrelated within each world; a simplification | **L3** update step | Session 11 | 🟡 |
+| Circular testing | Testing on data built from your own assumptions flatters the agent | Experiment (Step 6) risk | Session 11 | 🟡 |
 | Entropy | How spread out (uncertain) the belief is, in bits | L1–L3 diagnostics | Week 2 | ⬜ |
 | Information gain (expected) | How much a check is *expected* to reduce uncertainty | Choosing which check to run | Week 2 | ⬜ |
 | Value of information · stop rule | A check is worth it only if some result would change the action | **L4** information selection | Week 2 | ⬜ |
@@ -175,5 +197,5 @@ they match how I remember them.*
 | **Policy** | L4 | 🟡 | three zones; **p₁ derived**; p₂ hinges on the timing gap (reject alerts now, hold after a failed call); escalation: stakes + uncertainty | §11, §11a | Decision rule |
 | **Feedback** | — | 🟡 | **a failed callback raises a security alert** (decided 2026-09-30); what else the agent learns is open | §11 | Agent design |
 | **Human reasoning function** | — | ⬜ | candidate: change belief after new evidence (callback) | — | Agent design |
-| **Spec (Genesis)** | — | 🟡 | Genesis set up 2026-10-06 (discovery phase). Decisions + open assumptions recorded in the ledger; `SPEC.md` (9 sections, FR/NFR/AC IDs) for me to write, then approve before any code | `.genesis/`, `SPEC.md` | Agent design |
+| **Spec (Genesis)** | — | ✅ | `SPEC.md` **approved** 2026-10-06 (9 FR, 5 NFR, 8 AC); Genesis now in planning. Decisions + open assumptions in the ledger | `.genesis/`, `SPEC.md` | Agent design |
 | **Experiment** | — | ⬜ | policies + baselines incl. **always hold-and-verify**; India setting; simulated cases | — | Test method / Results |

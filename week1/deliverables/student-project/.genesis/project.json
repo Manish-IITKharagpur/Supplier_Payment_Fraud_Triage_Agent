@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-10-06T03:17:21.341Z",
-    "updated_at": "2026-10-06T15:09:09.735Z"
+    "updated_at": "2026-10-06T15:13:11.383Z"
   },
   "policy": {
     "ponytail": "full",
@@ -271,11 +271,11 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-10-06T15:09:09.529Z",
+    "at": "2026-10-06T15:13:11.124Z",
     "revision": {
-      "commit": "31f35beeeeb1b97efaa01591415559cd6d8d36b4",
+      "commit": "9de8560990331b01d312f2816bd82d4c805295e4",
       "dirty": true,
-      "source_hash": "7e887150408c69aa5063b174f862dec87fc76c52a072379bca70223f83d38a26"
+      "source_hash": "eab903c181f9a23cbc7a4366fa2d492af2d101f854abb41bb452b4a0bb3c50a3"
     },
     "active_task": null,
     "next_action": "Create requirement-linked implementation tasks with executable gates, then run genesis plan check."
