@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-10-06T03:17:21.341Z",
-    "updated_at": "2026-10-06T15:00:19.625Z"
+    "updated_at": "2026-10-06T15:09:09.735Z"
   },
   "policy": {
     "ponytail": "full",
@@ -23,18 +23,18 @@
     }
   },
   "lifecycle": {
-    "phase": "specification",
+    "phase": "planning",
     "status": "active",
-    "active_task": "SPEC-1",
+    "active_task": null,
     "blocker": null,
-    "next_action": "Ask the human to review SPEC.md, then record explicit specification approval."
+    "next_action": "Create requirement-linked implementation tasks with executable gates, then run genesis plan check."
   },
   "commands": {},
   "workflow": {
     "type": "new-product",
     "started_at": "2026-10-06T03:17:21.367Z",
     "spec_check": {
-      "at": "2026-10-06T15:00:10.598Z",
+      "at": "2026-10-06T15:09:08.058Z",
       "source_hash": "2a2f2ed1b51926e620fa9bb04b70040064292c3774389c6485b6922680ee9dd6",
       "requirements": [
         "AC-1",
@@ -69,7 +69,7 @@
       "id": "SPEC-1",
       "type": "specification",
       "path": "SPEC.md",
-      "status": "checked",
+      "status": "approved",
       "requirements": [
         "AC-1",
         "AC-2",
@@ -95,7 +95,12 @@
         "NFR-5"
       ],
       "source_hash": "2a2f2ed1b51926e620fa9bb04b70040064292c3774389c6485b6922680ee9dd6",
-      "approval": null
+      "approval": {
+        "human": "Manish Raj",
+        "reason": "Approved by Manish in chat on 2026-10-06 (\"approve\"); no reason given beyond approval",
+        "at": "2026-10-06T15:09:08.713Z",
+        "source_hash": "2a2f2ed1b51926e620fa9bb04b70040064292c3774389c6485b6922680ee9dd6"
+      }
     }
   ],
   "assumptions": [
@@ -225,7 +230,7 @@
     {
       "id": "SPEC-1",
       "outcome": "Produce an approved, implementation-ready product specification",
-      "state": "active",
+      "state": "done",
       "risk": "medium",
       "owner": null,
       "scope": [
@@ -238,8 +243,13 @@
           "id": "independent-review",
           "command": "",
           "mandatory": true,
-          "status": "pending",
-          "evidence": null,
+          "status": "pass",
+          "evidence": {
+            "human": "Manish Raj",
+            "reason": "Approved by Manish in chat on 2026-10-06 (\"approve\"); no reason given beyond approval",
+            "source_hash": "7e887150408c69aa5063b174f862dec87fc76c52a072379bca70223f83d38a26",
+            "observed_at": "2026-10-06T15:09:08.713Z"
+          },
           "kind": "review"
         }
       ],
@@ -249,7 +259,7 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-10-06T03:17:21.367Z",
-      "updated_at": "2026-10-06T15:00:10.601Z"
+      "updated_at": "2026-10-06T15:09:08.713Z"
     }
   ],
   "learning_proposals": [],
@@ -261,14 +271,14 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-10-06T15:00:19.295Z",
+    "at": "2026-10-06T15:09:09.529Z",
     "revision": {
-      "commit": "afbb2cd566730211e736780ec3e1f9a03f296d8b",
+      "commit": "31f35beeeeb1b97efaa01591415559cd6d8d36b4",
       "dirty": true,
       "source_hash": "7e887150408c69aa5063b174f862dec87fc76c52a072379bca70223f83d38a26"
     },
-    "active_task": "SPEC-1",
-    "next_action": "Ask the human to review SPEC.md, then record explicit specification approval."
+    "active_task": null,
+    "next_action": "Create requirement-linked implementation tasks with executable gates, then run genesis plan check."
   },
   "legacy": null
 }
