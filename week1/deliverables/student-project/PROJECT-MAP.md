@@ -175,4 +175,5 @@ they match how I remember them.*
 | **Policy** | L4 | 🟡 | three zones; **p₁ derived**; p₂ hinges on the timing gap (reject alerts now, hold after a failed call); escalation: stakes + uncertainty | §11, §11a | Decision rule |
 | **Feedback** | — | 🟡 | **a failed callback raises a security alert** (decided 2026-09-30); what else the agent learns is open | §11 | Agent design |
 | **Human reasoning function** | — | ⬜ | candidate: change belief after new evidence (callback) | — | Agent design |
+| **Spec (Genesis)** | — | 🟡 | Genesis set up 2026-10-06 (discovery phase). Decisions + open assumptions recorded in the ledger; `SPEC.md` (9 sections, FR/NFR/AC IDs) for me to write, then approve before any code | `.genesis/`, `SPEC.md` | Agent design |
 | **Experiment** | — | ⬜ | policies + baselines incl. **always hold-and-verify**; India setting; simulated cases | — | Test method / Results |

@@ -42,8 +42,9 @@ I am a beginner learning this material. Follow the course coach
 - **Notion is the source of truth for progress.** Everything lives under one page,
   **"AI Native Engineering Sprint Hub"**. Its sub-pages: "Week 1 Deliverable — Supplier Payment
   Fraud Triage Agent", "Public Presence", "Session Log", and later Week N pages.
-- **Start of session:** read `week1/deliverables/student-project/PROJECT-MAP.md`, then the hub's
-  *Current focus* and the latest Session Log entry. **Before any new work, open with a briefing**
+- **Start of session:** read `week1/deliverables/student-project/PROJECT-MAP.md`, then
+  `week1/deliverables/student-project/.genesis/KICKOFF.md` (Genesis phase and next action), then
+  the hub's *Current focus* and the latest Session Log entry. **Before any new work, open with a briefing**
   in this format (short, in plain words):
   1. **Where we are:** stage and step, plus the last session in one line
   2. **The journey so far:** the story in 4–6 lines (what the agent could do → what we learned →
@@ -53,7 +54,8 @@ I am a beginner learning this material. Follow the course coach
 - **End of session (every time):** (0) update `PROJECT-MAP.md`: rewrite section A, add a section B
   entry for the session, and update C/D if a concept or agent part changed; (1) tick items on the
   Week page; (2) add a Session Log entry (covered / stopped at / next); (3) rewrite the hub's
-  *Current focus* (now / next / waiting on me); (4) commit and push.
+  *Current focus* (now / next / waiting on me); (4) record new decisions with `genesis record` and
+  run `genesis checkpoint week1/deliverables/student-project`; (5) commit and push.
 - `/where-am-i` gives the same briefing at any point mid-session.
 - The hub's "Deliverables" page is **outdated and contains wrong information. Ignore it** and never
   use it as a source.
@@ -70,3 +72,8 @@ I am a beginner learning this material. Follow the course coach
 
 ## Tools
 - `reddit-mcp-buddy` MCP: read-only Reddit (activity checks, reading threads). Limited to 10 requests a minute.
+- **Genesis** (`~/.local/bin/genesis`, kit in `../genesis-kit-main/`): spec-first harness, set up
+  2026-10-06 in `week1/deliverables/student-project/`. It holds the ledger of decisions, tasks and
+  proof (`.genesis/project.json`). Phase: discovery, so **no implementation code** until I approve
+  `SPEC.md`. I write SPEC.md; Claude interviews and critiques. Only I approve
+  (`genesis spec approve`). PROJECT-MAP keeps the learning story, Notion keeps the session log.

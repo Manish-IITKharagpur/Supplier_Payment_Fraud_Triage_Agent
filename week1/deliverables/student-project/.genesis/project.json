@@ -1,0 +1,204 @@
+{
+  "schema_version": 2,
+  "project": {
+    "name": "Supplier Payment Fraud Triage Agent",
+    "mode": "init",
+    "profile": "prototype",
+    "objective": "Agent that triages supplier bank-change emails (approve / hold-and-verify / reject) under uncertainty over legitimate / spoofed / compromised mailbox, India setting",
+    "constraints": [],
+    "non_goals": [],
+    "trust_boundary": "local repository",
+    "created_at": "2026-10-06T03:17:21.341Z",
+    "updated_at": "2026-10-06T03:20:40.418Z"
+  },
+  "policy": {
+    "ponytail": "full",
+    "autonomy": "human-in-the-loop",
+    "learned_rule_promotion": "human-required",
+    "cleanup": "propose-only",
+    "traces": {
+      "storage": "local",
+      "commit_raw": false,
+      "redact_secrets": true
+    }
+  },
+  "lifecycle": {
+    "phase": "discovery",
+    "status": "active",
+    "active_task": "SPEC-1",
+    "blocker": null,
+    "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md."
+  },
+  "commands": {},
+  "workflow": {
+    "type": "new-product",
+    "started_at": "2026-10-06T03:17:21.367Z",
+    "spec_check": null,
+    "plan_check": null,
+    "plan_approval": null
+  },
+  "artifacts": [
+    {
+      "id": "SPEC-1",
+      "type": "specification",
+      "path": "SPEC.md",
+      "status": "draft",
+      "requirements": [],
+      "source_hash": null,
+      "approval": null
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "ASSUMPTION-b835811d",
+      "text": "Callback delay (time from request to failed callback) is unknown; p2 depends on it. Until practitioner answers arrive it is an assumed setting varied in a sensitivity check.",
+      "status": "open",
+      "source": "research-file.md §11 (2026-09-30)",
+      "recorded_at": "2026-10-06T03:17:41.446Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "ASSUMPTION-49ef449f",
+      "text": "Prior over the 3 states has no clean source (most reports lack the total of requests; investigator data may over-count compromised). Use a range, values labelled assumed, and a sensitivity check.",
+      "status": "open",
+      "source": "research-file.md §11c (2026-10-01)",
+      "recorded_at": "2026-10-06T03:17:42.004Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "ASSUMPTION-a4a151dc",
+      "text": "Evidence likelihood directions (9-clue table) are the student's judgment, not yet sourced.",
+      "status": "open",
+      "source": "research-file.md §11b (2026-09-30)",
+      "recorded_at": "2026-10-06T03:17:42.520Z",
+      "paths": [],
+      "tags": []
+    }
+  ],
+  "invariants": [],
+  "decisions": [
+    {
+      "id": "DECISION-954503dd",
+      "title": "Three separate hidden states",
+      "text": "Hidden states are legitimate / spoofed / compromised real mailbox. Spoofed and compromised stay separate because they lead to different best actions (reject only adds value when compromised).",
+      "status": "accepted",
+      "source": "research-file.md §11 (2026-09-27); CLAUDE.md",
+      "recorded_at": "2026-10-06T03:17:37.939Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-8f27a061",
+      "title": "Reject means block plus security alert",
+      "text": "Reject = the email is blocked before the AP inbox and a security alert is logged. A wrong reject is recoverable: security can review and release the email.",
+      "status": "accepted",
+      "source": "research-file.md §11 (2026-09-27)",
+      "recorded_at": "2026-10-06T03:17:38.461Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-16aab44d",
+      "title": "Setting is India",
+      "text": "Payments by NEFT/RTGS/IMPS, accounts identified by IFSC, amounts in INR, penny-drop name check available.",
+      "status": "accepted",
+      "source": "research-file.md §11 (2026-09-29)",
+      "recorded_at": "2026-10-06T03:17:38.986Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-fc616a48",
+      "title": "Three-zone policy and derived p1",
+      "text": "Approve below p1, hold-and-verify between p1 and p2, reject above p2. p1 = cost of one verification / loss if fraud approved; very small and falls as the amount rises. p2 depends mainly on P(compromised).",
+      "status": "accepted",
+      "source": "research-file.md §11, §11a (2026-09-26/27)",
+      "recorded_at": "2026-10-06T03:17:39.494Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-7ea1ba29",
+      "title": "Failed callback raises a security alert",
+      "text": "If the supplier says on callback that they never sent the request, a security alert is raised (option B). A call shows fraud but not which kind. Consequence: reject's only remaining advantage over hold is timing (alerts immediately vs after the call fails).",
+      "status": "accepted",
+      "source": "research-file.md §11 (2026-09-30)",
+      "recorded_at": "2026-10-06T03:17:39.992Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-299ad5e6",
+      "title": "Accepted r/Accounting design changes",
+      "text": "IFSC branch mismatch is evidence; logo and signature are near-uninformative; the experiment includes an always hold-and-verify baseline.",
+      "status": "accepted",
+      "source": "discussion-record.md; research-file.md §11 (2026-09-29)",
+      "recorded_at": "2026-10-06T03:17:40.482Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-93d47d17",
+      "title": "Supplier change history belongs in the prior",
+      "text": "Supplier change history is known before the email arrives, so it makes the L2 prior supplier-specific rather than acting as L3 evidence.",
+      "status": "accepted",
+      "source": "research-file.md §11b (2026-09-30)",
+      "recorded_at": "2026-10-06T03:17:40.972Z",
+      "paths": [],
+      "tags": []
+    }
+  ],
+  "knowledge": [],
+  "tasks": [
+    {
+      "id": "SPEC-1",
+      "outcome": "Produce an approved, implementation-ready product specification",
+      "state": "active",
+      "risk": "medium",
+      "owner": null,
+      "scope": [
+        "SPEC.md"
+      ],
+      "dependencies": [],
+      "requirements": [],
+      "gates": [
+        {
+          "id": "independent-review",
+          "command": "",
+          "mandatory": true,
+          "status": "pending",
+          "evidence": null,
+          "kind": "review"
+        }
+      ],
+      "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md.",
+      "blocker": null,
+      "notes": [],
+      "failures": [],
+      "limitations": [],
+      "created_at": "2026-10-06T03:17:21.367Z",
+      "updated_at": "2026-10-06T03:17:21.367Z"
+    }
+  ],
+  "learning_proposals": [],
+  "cleanup_proposals": [],
+  "controls": [],
+  "attempts": [],
+  "authorizations": [],
+  "experiments": [],
+  "incidents": [],
+  "discovery": null,
+  "checkpoint": {
+    "at": "2026-10-06T03:20:40.235Z",
+    "revision": {
+      "commit": "25c3925b8f9e70c3d2bf3543970c21a127e0252e",
+      "dirty": true,
+      "source_hash": "6995be1f3449cfd8d154f4da360bc35408f946c11acb8ee964ef8537c09b309d"
+    },
+    "active_task": "SPEC-1",
+    "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md."
+  },
+  "legacy": null
+}
