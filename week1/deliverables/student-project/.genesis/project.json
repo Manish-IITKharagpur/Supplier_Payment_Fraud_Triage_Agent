@@ -9,7 +9,7 @@
     "non_goals": [],
     "trust_boundary": "local repository",
     "created_at": "2026-10-06T03:17:21.341Z",
-    "updated_at": "2026-10-06T03:20:40.418Z"
+    "updated_at": "2026-10-06T15:00:19.625Z"
   },
   "policy": {
     "ponytail": "full",
@@ -23,17 +23,44 @@
     }
   },
   "lifecycle": {
-    "phase": "discovery",
+    "phase": "specification",
     "status": "active",
     "active_task": "SPEC-1",
     "blocker": null,
-    "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md."
+    "next_action": "Ask the human to review SPEC.md, then record explicit specification approval."
   },
   "commands": {},
   "workflow": {
     "type": "new-product",
     "started_at": "2026-10-06T03:17:21.367Z",
-    "spec_check": null,
+    "spec_check": {
+      "at": "2026-10-06T15:00:10.598Z",
+      "source_hash": "2a2f2ed1b51926e620fa9bb04b70040064292c3774389c6485b6922680ee9dd6",
+      "requirements": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "AC-8",
+        "FR-1",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5"
+      ]
+    },
     "plan_check": null,
     "plan_approval": null
   },
@@ -42,9 +69,32 @@
       "id": "SPEC-1",
       "type": "specification",
       "path": "SPEC.md",
-      "status": "draft",
-      "requirements": [],
-      "source_hash": null,
+      "status": "checked",
+      "requirements": [
+        "AC-1",
+        "AC-2",
+        "AC-3",
+        "AC-4",
+        "AC-5",
+        "AC-6",
+        "AC-7",
+        "AC-8",
+        "FR-1",
+        "FR-2",
+        "FR-3",
+        "FR-4",
+        "FR-5",
+        "FR-6",
+        "FR-7",
+        "FR-8",
+        "FR-9",
+        "NFR-1",
+        "NFR-2",
+        "NFR-3",
+        "NFR-4",
+        "NFR-5"
+      ],
+      "source_hash": "2a2f2ed1b51926e620fa9bb04b70040064292c3774389c6485b6922680ee9dd6",
       "approval": null
     }
   ],
@@ -148,6 +198,26 @@
       "recorded_at": "2026-10-06T03:17:40.972Z",
       "paths": [],
       "tags": []
+    },
+    {
+      "id": "DECISION-812c5a42",
+      "title": "Clues independent within each world",
+      "text": "For the first version, clues are treated as independent given the hidden world (naive Bayes). Known to be false for lookalike domain + SPF/DKIM; reported as a limitation.",
+      "status": "accepted",
+      "source": "SPEC.md Constraints/Risks (2026-10-06)",
+      "recorded_at": "2026-10-06T14:59:56.757Z",
+      "paths": [],
+      "tags": []
+    },
+    {
+      "id": "DECISION-17b49d3a",
+      "title": "Beating always-call is reported, not required",
+      "text": "Acceptance requires the results to state whether and when the agent beats always hold-and-verify; winning is not required, to avoid tuning numbers until it wins.",
+      "status": "accepted",
+      "source": "SPEC.md AC-8 (2026-10-06)",
+      "recorded_at": "2026-10-06T14:59:57.713Z",
+      "paths": [],
+      "tags": []
     }
   ],
   "knowledge": [],
@@ -179,7 +249,7 @@
       "failures": [],
       "limitations": [],
       "created_at": "2026-10-06T03:17:21.367Z",
-      "updated_at": "2026-10-06T03:17:21.367Z"
+      "updated_at": "2026-10-06T15:00:10.601Z"
     }
   ],
   "learning_proposals": [],
@@ -191,14 +261,14 @@
   "incidents": [],
   "discovery": null,
   "checkpoint": {
-    "at": "2026-10-06T03:20:40.235Z",
+    "at": "2026-10-06T15:00:19.295Z",
     "revision": {
-      "commit": "25c3925b8f9e70c3d2bf3543970c21a127e0252e",
+      "commit": "afbb2cd566730211e736780ec3e1f9a03f296d8b",
       "dirty": true,
-      "source_hash": "6995be1f3449cfd8d154f4da360bc35408f946c11acb8ee964ef8537c09b309d"
+      "source_hash": "7e887150408c69aa5063b174f862dec87fc76c52a072379bca70223f83d38a26"
     },
     "active_task": "SPEC-1",
-    "next_action": "Interview the human, record durable context, and replace every placeholder in SPEC.md."
+    "next_action": "Ask the human to review SPEC.md, then record explicit specification approval."
   },
   "legacy": null
 }
