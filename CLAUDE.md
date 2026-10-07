@@ -27,6 +27,9 @@ I am a beginner learning this material. Follow the course coach
 - Mark anything AI-drafted that I have not verified with 🔲. Never cite a source I have not read.
 - Log AI mistakes in `research-file.md` section 13 (needed for the AI-use statement).
 - **Public discussions (Reddit/X) are mine.** Help draft and summarise, never post for me.
+- **When I'm stuck** ("I don't know", confused, off-target reply), follow the `/stuck` ladder:
+  shrink the question → worked example on a different problem → 2–3 options I pick from. At most
+  2 hint rounds before options.
 
 ## Where things are
 | Path | What |
